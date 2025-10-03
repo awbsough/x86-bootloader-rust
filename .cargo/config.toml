@@ -1,0 +1,8 @@
+[build]
+target = "i686-bootloader.json"
+rustflags = ["-C", "link-arg=-T", "-C", "link-arg=linker.ld"]
+
+[unstable]
+build-std = ["core"]
+build-std-features = ["compiler-builtins-mem"]
+
