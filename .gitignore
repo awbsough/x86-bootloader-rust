@@ -1,0 +1,18 @@
+# Rust build artifacts
+target/
+Cargo.lock
+
+# Bootloader build artifacts
+*.bin
+*.o
+*.elf
+boot-asm.bin
+bootloader-raw.bin
+bootloader.bin
+bootloader.elf
+boot.o
+
+# Unused target specs
+x86_64-bootloader.json
+linker.ld
+make-boot.sh
