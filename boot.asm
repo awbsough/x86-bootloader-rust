@@ -30,7 +30,7 @@ start:
     ; TODO(human): Set the number of sectors to load
     ; Each sector is 512 bytes. Calculate: (Rust code size / 512) + 1
     mov ah, 0x02        ; BIOS read sector function
-    mov al, 1          ; Number of sectors to read (TEMPORARY - you'll adjust this)
+    mov al, 6          ; Number of sectors to read (TEMPORARY - you'll adjust this)
     mov ch, 0           ; Cylinder 0
     mov cl, 2           ; Start at sector 2 (sector 1 is boot sector)
     mov dh, 0           ; Head 0
@@ -61,13 +61,6 @@ protected_mode:
     mov gs, ax
     mov ss, ax
     mov esp, 0x90000    ; Set up stack at 576KB (safe location)
-
-    ; Debug: Write "32" to show we're in protected mode
-    mov edi, 0xB8000
-    mov byte [edi], '3'
-    mov byte [edi+1], 0x0A  ; Green on black
-    mov byte [edi+2], '2'
-    mov byte [edi+3], 0x0A
 
     ; Call Rust code!
     extern _start
